@@ -1,20 +1,16 @@
-def dton(num:str):
-    if int(num) < 10 :
-        return num
-    return chr(int(num) + 55)
+def dton(num: int):
+    if num < 10:
+        return str(num)
+    return chr(num + 55)
 
-def converter(n,x,result):
-    quot = n // x
-    result.append(n % x)
-    if quot >= x:
-        return converter(quot,x,result)
-    else:
-        result.append(quot)
-        return result
+def converter(n: int, x: int):
+    result = []
+    while n > 0:
+        remainder = n % x
+        result.append(dton(remainder))
+        n //= x
+    return ''.join(result[::-1])
 
-n, x = map(int,input().split())
-li = list()
-li = converter(n,x,li)
-
-for i in li[::-1]:
-    print(dton(str(i)), end="")
+n, x = map(int, input().split())
+result = converter(n, x)
+print(result)
