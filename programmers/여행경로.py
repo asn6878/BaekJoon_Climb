@@ -27,3 +27,5 @@ def solution(tickets):
     return answer
 
 print(solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]))
+# 스택에 쌓고 다음 갈 경로 쌓기.
+# 
